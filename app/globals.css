@@ -163,19 +163,19 @@
 }
 
 :root {
-  --ink: #26324d;
-  --muted-ink: #68748f;
-  --paper: #fbfcff;
-  --line: #e1e6f2;
-  --sage: #6d5ce7;
-  --sage-dark: #5141b5;
-  --sage-pale: #f0edff;
-  --terracotta: #f07861;
-  --terracotta-pale: #fff0ed;
-  --gold: #f2b84b;
-  --gold-pale: #fff7df;
-  --sky: #4aa3df;
-  --lavender: #9a7ee8;
+  --ink: #243247;
+  --muted-ink: #68788d;
+  --paper: #f7fafc;
+  --line: #dce5ed;
+  --sage: #2f7f86;
+  --sage-dark: #1f5e68;
+  --sage-pale: #e6f3f3;
+  --terracotta: #d96f58;
+  --terracotta-pale: #fff0eb;
+  --gold: #d99b3d;
+  --gold-pale: #fff6df;
+  --sky: #4c8fbd;
+  --lavender: #7d8eae;
 }
 
 body { background: var(--paper); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
