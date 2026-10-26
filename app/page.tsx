@@ -1,6 +1,11 @@
+import { headers } from 'next/headers'
+import { redirect } from 'next/navigation'
+import { auth } from '@/lib/auth'
 import GapFinderDashboard from '@/components/gapfinder-dashboard'
 
-export default function Page() {
-  return <GapFinderDashboard />
+export default async function Page() {
+  const session = await auth.api.getSession({ headers: await headers() })
+  if (!session?.user) redirect('/login')
+  return <GapFinderDashboard user={{ name: session.user.name, email: session.user.email }} />
 }
 
