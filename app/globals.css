@@ -413,3 +413,13 @@ body { background: #0F172A; color: #F8FAFC; }
 .auth-form input { background: #1E293B; border-color: #475569; color: #F8FAFC; }
 .auth-form input::placeholder { color: #64748B; }
 .auth-submit:hover { background: #818CF8; }
+
+/* High-contrast text pass */
+.app-shell h1, .app-shell h2, .app-shell h3, .app-shell strong, .app-shell .panel-title, .app-shell .feature-card-copy strong { color: #F8FAFC; }
+.app-shell p, .app-shell span, .app-shell li, .app-shell .intro, .app-shell .banner-copy p, .app-shell .stat-card p, .app-shell .feature-card-copy span { color: #CBD5E1; }
+.app-shell .eyebrow, .app-shell .breadcrumb, .app-shell .legend, .app-shell .muted, .app-shell .nav-label { color: #94A3B8; }
+.app-shell input, .app-shell textarea { color: #F8FAFC; caret-color: #22D3EE; }
+.app-shell input::placeholder, .app-shell textarea::placeholder { color: #94A3B8; opacity: 1; }
+.auth-page h1, .auth-page h2, .auth-page h3, .auth-page strong { color: #F8FAFC; }
+.auth-page p, .auth-page label, .auth-page .auth-switch { color: #CBD5E1; }
+.auth-page input::placeholder { color: #94A3B8; opacity: 1; }
