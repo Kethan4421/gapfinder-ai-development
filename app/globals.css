@@ -164,16 +164,18 @@
 
 :root {
   --ink: #24332e;
-  --muted-ink: #73807a;
-  --paper: #f8f9f5;
-  --line: #e5e9e3;
-  --sage: #579581;
-  --sage-dark: #387461;
-  --sage-pale: #eaf3ee;
-  --terracotta: #e17b58;
-  --terracotta-pale: #fff0e9;
-  --gold: #d2a54a;
-  --gold-pale: #fff8e8;
+  --muted-ink: #687a76;
+  --paper: #f7fbff;
+  --line: #dfe9ee;
+  --sage: #43a98b;
+  --sage-dark: #247d73;
+  --sage-pale: #e7f8f0;
+  --terracotta: #f07861;
+  --terracotta-pale: #fff0ed;
+  --gold: #f2b84b;
+  --gold-pale: #fff7df;
+  --sky: #5b9ee8;
+  --lavender: #8a79d6;
 }
 
 body { background: var(--paper); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
@@ -183,7 +185,7 @@ button { font: inherit; }
 .brand-mark { display: flex; align-items: center; gap: 7px; color: var(--ink); font-weight: 700; letter-spacing: -0.04em; font-size: 20px; padding: 0 13px 34px; }
 .brand-glyph { display: inline-flex; height: 25px; width: 25px; border-radius: 8px 8px 8px 2px; background: var(--sage); color: white; justify-content: center; align-items: center; font-family: Georgia, serif; font-size: 19px; font-style: italic; }
 .brand-ai { font-size: 10px; color: var(--sage-dark); letter-spacing: .02em; align-self: flex-start; margin-top: 2px; }
-.workspace-switcher { display: flex; gap: 9px; align-items: center; padding: 11px 10px; border: 1px solid #dde5dd; background: #f8faf7; border-radius: 10px; margin-bottom: 25px; }
+.workspace-switcher { display: flex; gap: 9px; align-items: center; padding: 11px 10px; border: 1px solid #dbe9ef; background: #ffffff; border-radius: 15px; margin-bottom: 25px; }
 .workspace-avatar, .profile-avatar { background: #d9ebe0; color: var(--sage-dark); border-radius: 7px; font-size: 10px; font-weight: 700; display: grid; place-items: center; }
 .workspace-avatar { height: 27px; width: 27px; }
 .workspace-switcher div:nth-child(2) { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
