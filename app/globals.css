@@ -203,7 +203,7 @@ button { font: inherit; }
 .main-content { flex: 1; min-width: 0; }.topbar { height: 70px; padding: 0 4.5vw; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); background: rgba(248,249,245,.82); }.breadcrumb { display: flex; align-items: center; gap: 9px; color: #a0aaa3; font-size: 11px; }.breadcrumb strong { color: #526159; font-weight: 600; }.topbar-actions { display: flex; align-items: center; gap: 12px; }.icon-button, .more-button, .profile-button, .mobile-menu { border: 0; background: transparent; color: #87938b; cursor: pointer; }.profile-button { display: flex; align-items: center; gap: 8px; }.profile-avatar { width: 27px; height: 27px; }.mobile-menu { display: none; }
 
 /* Premium dashboard layer */
-.app-shell { background: radial-gradient(circle at 82% 0%, rgba(224, 244, 232, .72), transparent 30%), var(--paper); }
+.app-shell { background: radial-gradient(circle at 82% 0%, rgba(224, 231, 255, .78), transparent 30%), #f4f2ff; }
 .sidebar { background: rgba(241, 247, 241, .88); backdrop-filter: blur(18px); box-shadow: 12px 0 30px rgba(44, 77, 58, .035); }
 .brand-glyph { box-shadow: 0 7px 16px rgba(67, 169, 139, .24); }
 .nav-item { position: relative; }
