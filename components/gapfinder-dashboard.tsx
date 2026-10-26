@@ -62,7 +62,9 @@ function StatusPill({ status }: { status: Topic['status'] }) {
   return <span className={`status-pill ${status}`}>{labels[status]}</span>
 }
 
-export default function GapFinderDashboard() {
+export default function GapFinderDashboard({ user }: { user: { name?: string | null; email: string } }) {
+  const displayName = user.name?.trim() || user.email.split('@')[0]
+  const initials = displayName.split(/\s+/).map((part) => part[0]).join('').slice(0, 2).toUpperCase()
   const [activeNav, setActiveNav] = useState('Overview')
   const [showUpload, setShowUpload] = useState(false)
   const [showQuiz, setShowQuiz] = useState(false)
@@ -80,7 +82,7 @@ export default function GapFinderDashboard() {
     <div className="app-shell">
       <aside className={showMobileNav ? 'sidebar mobile-open' : 'sidebar'}>
         <div className="brand-mark"><span className="brand-glyph">g</span><span>gapfinder</span><span className="brand-ai">AI</span><button className="mobile-close" aria-label="Close menu" onClick={() => setShowMobileNav(false)}><X size={17} /></button></div>
-        <div className="workspace-switcher"><div className="workspace-avatar">AM</div><div><strong>Maya Sharma</strong><span>Mathematics · Class 7</span></div><ChevronDown size={15} /></div>
+        <div className="workspace-switcher"><div className="workspace-avatar">{initials}</div><div><strong>{displayName}</strong><span>{user.email}</span></div><ChevronDown size={15} /></div>
         <nav className="primary-nav" aria-label="Main navigation">
           {[{ label: 'Overview', icon: LayoutDashboard }, { label: 'My topics', icon: ListChecks }, { label: 'Revision plan', icon: Target }, { label: 'Materials', icon: FileText }].map(({ label, icon: Icon }) => (
             <button key={label} className={activeNav === label ? 'nav-item active' : 'nav-item'} onClick={() => { setActiveNav(label); notify(`${label} view selected`) }}><Icon size={18} /><span>{label}</span>{label === 'My topics' && <span className="nav-count">12</span>}</button>
@@ -90,10 +92,10 @@ export default function GapFinderDashboard() {
       </aside>
 
       <main className="main-content">
-        <header className="topbar"><button className="mobile-menu" aria-label="Open menu" aria-expanded={showMobileNav} onClick={() => setShowMobileNav((value) => !value)}><Menu size={21} /></button><div className="breadcrumb"><span>Workspace</span><span>/</span><strong>{activeNav}</strong></div><div className="topbar-actions"><Link className="auth-link" href="/login">Log in</Link><Link className="auth-link primary" href="/signup">Create account</Link><button className="icon-button" aria-label="Search" onClick={() => notify('Search is ready for your topics and materials')}><Search size={18} /></button><button className="profile-button" onClick={() => notify('Maya Sharma · Class 7')}><span className="profile-avatar">AM</span><ChevronDown size={14} /></button></div></header>
+        <header className="topbar"><button className="mobile-menu" aria-label="Open menu" aria-expanded={showMobileNav} onClick={() => setShowMobileNav((value) => !value)}><Menu size={21} /></button><div className="breadcrumb"><span>Workspace</span><span>/</span><strong>{activeNav}</strong></div><div className="topbar-actions"><Link className="auth-link" href="/login">Log in</Link><Link className="auth-link primary" href="/signup">Create account</Link><button className="icon-button" aria-label="Search" onClick={() => notify('Search is ready for your topics and materials')}><Search size={18} /></button><button className="profile-button" onClick={() => notify(`${displayName} · ${user.email}`)}><span className="profile-avatar">{initials}</span><ChevronDown size={14} /></button></div></header>
 
         <div className="content-wrap">
-          <section className="welcome-row"><div><p className="eyebrow">Monday, October 26, 2026</p><h1>Good morning, Maya.</h1><p className="intro">Let&apos;s see what you know and what to practise next.</p></div><button className="upload-button" onClick={() => setShowUpload(true)}><Plus size={17} /> Add material</button></section>
+          <section className="welcome-row"><div><p className="eyebrow">Monday, October 26, 2026</p><h1>Good morning, {displayName}.</h1><p className="intro">Let&apos;s see what you know and what to practise next.</p></div><button className="upload-button" onClick={() => setShowUpload(true)}><Plus size={17} /> Add material</button></section>
 
           <section className="diagnosis-banner"><div className="banner-icon"><Brain size={25} /></div><div className="banner-copy"><div className="banner-kicker"><span className="live-dot" /> Diagnosis updated 2 hours ago</div><h2>Your next best move is clear.</h2><p>You already know some of this chapter. Spend a little more time on <strong>Quadratic equations</strong> — this is the topic that can grow fastest.</p></div><button className="banner-action" onClick={() => notify('Starting your focused practice')}>Start focused practice <ArrowUpRight size={16} /></button></section>
 

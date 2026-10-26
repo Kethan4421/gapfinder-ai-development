@@ -6,6 +6,6 @@ import GapFinderDashboard from '@/components/gapfinder-dashboard'
 export default async function Page() {
   const session = await auth.api.getSession({ headers: await headers() })
   if (!session?.user) redirect('/login')
-  return <GapFinderDashboard />
+  return <GapFinderDashboard user={{ name: session.user.name, email: session.user.email }} />
 }
 
