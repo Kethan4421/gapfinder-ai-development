@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { AiTutor } from './ai-tutor'
 import {
   ArrowUpRight,
   BookOpen,
@@ -107,6 +108,7 @@ export default function GapFinderDashboard() {
       {showUpload && <div className="modal-backdrop" onClick={() => setShowUpload(false)}><div className="upload-modal" role="dialog" aria-modal="true" aria-labelledby="upload-title" onClick={(event) => event.stopPropagation()}><button className="modal-close" onClick={() => setShowUpload(false)} aria-label="Close"><X size={18} /></button><div className="modal-symbol"><Upload size={22} /></div><p className="eyebrow">Grow your diagnosis</p><h2 id="upload-title">Add study material</h2><p>Upload a syllabus, chapter notes, or past paper. GapFinder will map it into topics for your next assessment.</p><input ref={fileInputRef} className="sr-only" type="file" accept=".pdf,.docx,.txt" onChange={(event) => { const file = event.target.files?.[0]; if (file) notify(`${file.name} selected`) }} /><button className="dropzone" onClick={() => fileInputRef.current?.click()} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); const file = event.dataTransfer.files[0]; if (file) notify(`${file.name} selected`) }}><Upload size={20} /><strong>Drop files here or browse</strong><span>PDF, DOCX, TXT up to 20MB</span></button><button className="modal-secondary" onClick={() => setShowUpload(false)}>Maybe later</button></div></div>}
       {showQuiz && <div className="modal-backdrop" onClick={() => setShowQuiz(false)}><div className="upload-modal quiz-modal" role="dialog" aria-modal="true" aria-labelledby="quiz-title" onClick={(event) => event.stopPropagation()}><button className="modal-close" onClick={() => setShowQuiz(false)} aria-label="Close quiz"><X size={18} /></button><div className="modal-symbol sage"><Brain size={22} /></div><p className="eyebrow">Find your gaps</p><h2 id="quiz-title">Diagnostic quiz</h2><p>Answer a few questions from your study material to see what to practise next.</p><div className="quiz-question"><span>Question 1 of 5</span><strong>Which topic would you like to check first?</strong><button onClick={() => { setShowQuiz(false); notify('Quiz started for Quadratic equations') }}>Quadratic equations</button><button onClick={() => { setShowQuiz(false); notify('Quiz started for Differentiation rules') }}>Differentiation rules</button></div><button className="modal-secondary" onClick={() => setShowQuiz(false)}>Maybe later</button></div></div>}
       {toast && <div className="toast" role="status"><Check size={16} />{toast}</div>}
+      <AiTutor />
     </div>
   )
 }
