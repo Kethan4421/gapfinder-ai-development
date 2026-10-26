@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import {
   ArrowUpRight,
   BookOpen,
@@ -65,6 +65,7 @@ export default function GapFinderDashboard() {
   const [showUpload, setShowUpload] = useState(false)
   const [showAllTopics, setShowAllTopics] = useState(false)
   const [toast, setToast] = useState('')
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const notify = (message: string) => {
     setToast(message)
@@ -102,7 +103,7 @@ export default function GapFinderDashboard() {
         </div>
       </main>
 
-      {showUpload && <div className="modal-backdrop" onClick={() => setShowUpload(false)}><div className="upload-modal" role="dialog" aria-modal="true" aria-labelledby="upload-title" onClick={(event) => event.stopPropagation()}><button className="modal-close" onClick={() => setShowUpload(false)} aria-label="Close"><X size={18} /></button><div className="modal-symbol"><Upload size={22} /></div><p className="eyebrow">Grow your diagnosis</p><h2 id="upload-title">Add study material</h2><p>Upload a syllabus, chapter notes, or past paper. GapFinder will map it into topics for your next assessment.</p><button className="dropzone" onClick={() => notify('File picker ready in the next step')}><Upload size={20} /><strong>Drop files here or browse</strong><span>PDF, DOCX, TXT up to 20MB</span></button><button className="modal-secondary" onClick={() => setShowUpload(false)}>Maybe later</button></div></div>}
+      {showUpload && <div className="modal-backdrop" onClick={() => setShowUpload(false)}><div className="upload-modal" role="dialog" aria-modal="true" aria-labelledby="upload-title" onClick={(event) => event.stopPropagation()}><button className="modal-close" onClick={() => setShowUpload(false)} aria-label="Close"><X size={18} /></button><div className="modal-symbol"><Upload size={22} /></div><p className="eyebrow">Grow your diagnosis</p><h2 id="upload-title">Add study material</h2><p>Upload a syllabus, chapter notes, or past paper. GapFinder will map it into topics for your next assessment.</p><input ref={fileInputRef} className="sr-only" type="file" accept=".pdf,.docx,.txt" onChange={(event) => { const file = event.target.files?.[0]; if (file) notify(`${file.name} selected`) }} /><button className="dropzone" onClick={() => fileInputRef.current?.click()} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); const file = event.dataTransfer.files[0]; if (file) notify(`${file.name} selected`) }}><Upload size={20} /><strong>Drop files here or browse</strong><span>PDF, DOCX, TXT up to 20MB</span></button><button className="modal-secondary" onClick={() => setShowUpload(false)}>Maybe later</button></div></div>}
       {toast && <div className="toast" role="status"><Check size={16} />{toast}</div>}
     </div>
   )
