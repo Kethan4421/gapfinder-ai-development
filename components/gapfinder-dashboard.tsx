@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import Link from 'next/link'
 import { AiTutor } from './ai-tutor'
 import {
   ArrowUpRight,
@@ -89,7 +90,7 @@ export default function GapFinderDashboard() {
       </aside>
 
       <main className="main-content">
-        <header className="topbar"><button className="mobile-menu" aria-label="Open menu" aria-expanded={showMobileNav} onClick={() => setShowMobileNav((value) => !value)}><Menu size={21} /></button><div className="breadcrumb"><span>Workspace</span><span>/</span><strong>{activeNav}</strong></div><div className="topbar-actions"><button className="icon-button" aria-label="Search" onClick={() => notify('Search is ready for your topics and materials')}><Search size={18} /></button><button className="profile-button" onClick={() => notify('Maya Sharma · Class 7')}><span className="profile-avatar">AM</span><ChevronDown size={14} /></button></div></header>
+        <header className="topbar"><button className="mobile-menu" aria-label="Open menu" aria-expanded={showMobileNav} onClick={() => setShowMobileNav((value) => !value)}><Menu size={21} /></button><div className="breadcrumb"><span>Workspace</span><span>/</span><strong>{activeNav}</strong></div><div className="topbar-actions"><Link className="auth-link" href="/login">Log in</Link><Link className="auth-link primary" href="/signup">Create account</Link><button className="icon-button" aria-label="Search" onClick={() => notify('Search is ready for your topics and materials')}><Search size={18} /></button><button className="profile-button" onClick={() => notify('Maya Sharma · Class 7')}><span className="profile-avatar">AM</span><ChevronDown size={14} /></button></div></header>
 
         <div className="content-wrap">
           <section className="welcome-row"><div><p className="eyebrow">Monday, October 26, 2026</p><h1>Good morning, Maya.</h1><p className="intro">Let&apos;s see what you know and what to practise next.</p></div><button className="upload-button" onClick={() => setShowUpload(true)}><Plus size={17} /> Add material</button></section>
