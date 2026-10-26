@@ -397,8 +397,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 }
 
 /* Final premium theme overrides: kept last so legacy page rules cannot flatten the dark system. */
-body { background: #0F172A; color: #F8FAFC; }
-.app-shell { background: radial-gradient(circle at 82% 0%, rgba(129,140,248,.09), transparent 31%), #0F172A; }
+body { background: #000000; color: #F8FAFC; }
+.app-shell { background: radial-gradient(circle at 82% 0%, rgba(129,140,248,.08), transparent 31%), #000000; }
 .sidebar { background: #111C31; border-color: #334155; }
 .topbar { background: rgba(15,23,42,.92); border-color: #334155; }
 .workspace-switcher, .stat-card, .panel, .feature-card, .insight-card, .checkin-card { background: #1E293B; border-color: #3B4A60; color: #F8FAFC; }
@@ -406,7 +406,7 @@ body { background: #0F172A; color: #F8FAFC; }
 .feature-card { background: #1E293B; }
 .progress-track, .mini-track { background: #3B4A60; }
 .upload-button, .auth-submit, .ai-tutor-launcher { background: #6875D8; box-shadow: 0 8px 18px rgba(2,6,23,.28); }
-.auth-page, .auth-panel { background: #0F172A; color: #F8FAFC; }
+.auth-page, .auth-panel { background: #000000; color: #F8FAFC; }
 .auth-visual { background: linear-gradient(145deg, #111827, #1E293B 70%, #26344A); }
 .auth-form-wrap h2, .auth-subtitle { color: #F8FAFC; }
 .auth-form label > span, .auth-switch { color: #CBD5E1; }
